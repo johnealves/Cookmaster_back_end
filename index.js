@@ -1,13 +1,20 @@
-const app = require('./api/app');
+const express = require('express');
+
+const app = express()
 
 const PORT = process.env.PORT || 3000;
 
-app.use(
-  cors({
-    origin: `*`,
-    methods: [GET, POST, PUT, DELETE],
-    allwedHeaders: ['Authorization'],
-  })
-);
+// app.use(
+//   cors({
+//     origin: `*`,
+//     methods: [GET, POST, PUT, DELETE],
+//     allwedHeaders: ['Authorization'],
+//   })
+// );
 
-app.listen(PORT, () => `liesten at port ${PORT}`);
+app.get('/', (req, res) =>{
+  res.send('Vamo que vamo!!!')
+})
+
+
+app.listen(PORT, () => console.log(`liesten at port ${PORT}`));
