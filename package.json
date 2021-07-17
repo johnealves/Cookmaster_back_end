@@ -1,0 +1,30 @@
+{
+  "name": "Cookmaster_back_end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnealves/Cookmaster_back_end.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnealves/Cookmaster_back_end/issues"
+  },
+  "homepage": "https://github.com/johnealves/Cookmaster_back_end#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mocha": "^9.0.2",
+    "sinon": "^11.1.1"
+  }
+}
