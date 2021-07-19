@@ -1,4 +1,4 @@
-const { findRecipeById } = require('../models/recipes');
+const { findRecipeById } = require("../../models/recipes");
 
 module.exports = async (req, res, next) => {
   const { id } = req.params;

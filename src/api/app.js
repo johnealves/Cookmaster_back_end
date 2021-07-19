@@ -1,14 +1,16 @@
 const path = require('path');
 const express = require('express');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const controllers = require('../controllers/index');
+const recipesRoutes = require('./recipesRoutes');
+const userRoutes = require('./userRoutes');
+const error = require('./error');
 
 const app = express();
 
+app.use(bodyParser.json());
 app.use('/images', express.static(path.join(__dirname, '..', 'uploads')));
-
-// const PORT = process.env.PORT || 3000;
 
 // app.use(
 //   cors({
@@ -22,8 +24,9 @@ app.get('/', (req, res) =>{
   res.send('Vamo que vamo!!!')
 })
 
-app.get('/recipes', controllers.getAllRecipes);
+app.use('/recipes', recipesRoutes);
+app.use('/users', userRoutes);
 
-app.get('/recipes/:id', controllers.getRecipeById);
+app.use(error);
 
 module.exports = app;
