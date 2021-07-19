@@ -6,6 +6,7 @@ const cors = require('cors');
 const recipesRoutes = require('./recipesRoutes');
 const userRoutes = require('./userRoutes');
 const error = require('./error');
+const { login } = require('../controllers');
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.get('/', (req, res) =>{
 
 app.use('/recipes', recipesRoutes);
 app.use('/users', userRoutes);
+app.get('/login', login)
 
 app.use(error);
 

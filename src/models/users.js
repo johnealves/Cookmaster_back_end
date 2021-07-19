@@ -30,7 +30,7 @@ const findUserById = async (id) => {
 
 const findUserByEmail = async (email) => {
   const [ data ] = await connection.execute(
-    'SELECT email FROM users WHERE email = ?', [email]
+    'SELECT * FROM users WHERE email = ?', [email]
   )
 
   return data
