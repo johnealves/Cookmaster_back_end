@@ -27,7 +27,7 @@ app.get('/', (req, res) =>{
 
 app.use('/recipes', recipesRoutes);
 app.use('/users', userRoutes);
-app.get('/login', login)
+app.post('/login', login)
 
 app.use(error);
 
