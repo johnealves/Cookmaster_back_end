@@ -1,13 +1,13 @@
 const connection = require("./connection")
 
-const insertNewUser = async (name, email, password) => {
+const insertNewUser = async (nameUser, email, password) => {
   const data = await connection.execute(
-    'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
-    [name, email, password] 
+    'INSERT INTO users (username, email, password) VALUES (?, ?, ?)',
+    [nameUser, email, password] 
   )
   
   return {
-    name,
+    nameUser,
     email,
   }
 }
