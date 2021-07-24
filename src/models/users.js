@@ -36,6 +36,14 @@ const findUserByEmail = async (email) => {
   return data
 }
 
+const findUserByUsername = async (username) => {
+  const [ data ] = await connection.execute(
+    'SELECT * FROM users WHERE username = ?', [username]
+  )
+
+  return data
+}
+
 const updateUserById = async (user, id) => {
   const { name, email, password, status } = user;
   connection.execute(
@@ -56,5 +64,6 @@ module.exports = {
   listAllUsers,
   findUserById,
   findUserByEmail,
+  findUserByUsername,
   updateUserById,
 }

@@ -1,19 +1,19 @@
 const jwt = require('jsonwebtoken');
-const { findUserByEmail } = require('../models/users');
+const { findUserByUsername } = require('../models/users');
 
 const secret = 'plusUltra';
 
 module.exports = async (req, res, next) => {
-  const { email, password } = req.body;
+  const { username, password } = req.body;
 
-  if (!email || !password) {
-    return next({ status: 404, message: 'Invalid entries, "email" and "password" is required' })
+  if (!username || !password) {
+    return next({ status: 404, message: 'Invalid entries, "username" and "password" is required' })
   }
 
-  const [data] = await findUserByEmail(email);
+  const [data] = await findUserByUsername(username);
 
   if (!data || password !== data.password) {
-    return next({ status: 400, message: 'Invalid entries, "email" or "password" incorrect' })
+    return next({ status: 400, message: 'Invalid entries, "username" or "password" incorrect' })
   }
 
   jwtConfig = {
