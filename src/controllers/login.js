@@ -21,7 +21,9 @@ module.exports = async (req, res, next) => {
     algorithm: "HS256",
   }
 
+  const { password: senha, ...user } = data;
+
   const token = jwt.sign({ data }, secret, jwtConfig)
 
-  res.status(200).json({ token });
+  res.status(200).json({ user, token });
 }

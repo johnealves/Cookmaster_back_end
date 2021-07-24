@@ -14,7 +14,7 @@ const insertNewUser = async (nameUser, email, password) => {
 
 const listAllUsers = async () => {
   const [data] = await connection.execute(
-    'SELECT userId, name, email, role, status, register FROM users'
+    'SELECT userId, username, email, role, status, register FROM users'
   )
 
   return data;
