@@ -1,6 +1,9 @@
 const getAllRecipes = require('./recipes/getAllRecipes');
 const getRecipeById = require('./recipes/getRecipeById');
 const getRecipeByUser = require('./recipes/getRecipesByUser');
+const createRecipe = require('./recipes/createRecipe');
+const updateRecipe = require('./recipes/attRecipeByRecipeId');
+const deleteRecipe = require('./recipes/deleteRecipe');
 const getUserByToken = require('./users/getUserByToken');
 const createUser = require('./users/createUser');
 const getAllUsers = require('./users/getAllUsers');
@@ -13,6 +16,7 @@ module.exports = {
   getAllRecipes,
   getRecipeById,
   getRecipeByUser,
+  createRecipe,
   getUserByToken,
   createUser,
   getAllUsers,
@@ -20,4 +24,6 @@ module.exports = {
   attUserById,
   login,
   getCategories,
+  updateRecipe,
+  deleteRecipe,
 }
