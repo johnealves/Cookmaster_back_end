@@ -8,6 +8,15 @@ const listAllRecipes = async () => {
   return list;
 }
 
+const listRecipesByUser = async (userId) => {
+  const [list] = await connection.execute(
+    'SELECT r.recipeId as recipeId, r.name as name, r.image as image, u.username as addBy,c.categoryName as category FROM recipes AS r INNER JOIN users AS u ON r.userId = u.userId INNER JOIN category AS c ON r.categoryId = c.categoryId WHERE r.userId = ?;',
+    [userId]
+  )
+
+  return list;
+}
+
 const findRecipeById = async (id) => {
   const [recipe] = await connection.execute(
     'SELECT * FROM recipes WHERE recipeId = (?)', [id]
@@ -18,5 +27,6 @@ const findRecipeById = async (id) => {
 
 module.exports = {
   listAllRecipes,
+  listRecipesByUser,
   findRecipeById,
 }
