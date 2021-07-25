@@ -45,15 +45,15 @@ const findUserByUsername = async (username) => {
 }
 
 const updateUserById = async (user, id) => {
-  const { name, email, password, status } = user;
+  const { username, email, password, status } = user;
   connection.execute(
-    'UPDATE users SET name = ?, email = ?, password = ?, status = ? WHERE userId = ?',
-    [name, email, password, status, id]
+    'UPDATE users SET username = ?, email = ?, password = ?, status = ? WHERE userId = ?',
+    [username, email, password, status, id]
   )
 
   return {
     userId: id,
-    name,
+    username,
     email,
     status,
   };

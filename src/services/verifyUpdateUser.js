@@ -1,13 +1,13 @@
 const { updateUserById, findUserById } = require("../models/users")
 
 const validateUpdateUser = async (body, id) =>{
-  const { name, password, email, status } = body;
+  const { username, password, email, status } = body;
   let [user] = await findUserById(id);
 
   if (!user) return { err: 'user_not_found' };
 
-  if (name) {
-    user.name = name;
+  if (username) {
+    user.username = username;
   }
 
   if (password) {
